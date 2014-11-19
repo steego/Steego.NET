@@ -12,8 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B30800
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{86A2DED2-AB09-4E5D-8608-43F7C909CEDB}"
 	ProjectSection(SolutionItems) = preProject
+		release.bat = release.bat
 		Steego.Conversions.nuspec = Steego.Conversions.nuspec
+		Steego.LinqPad.nuspec = Steego.LinqPad.nuspec
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.LinqPad", "Steego.LinqPad\Steego.LinqPad.csproj", "{764564C2-FA2A-4B70-B781-AD80F6B10AF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
