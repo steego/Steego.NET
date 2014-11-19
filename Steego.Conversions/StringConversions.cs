@@ -56,5 +56,15 @@ namespace Steego.Conversions {
       bool result;
       return (Boolean.TryParse(s, out result)) ? result : false;
     }
+
+    public static T ParseEnum<T>(this string text, T defaultValue) {
+      T obj;
+      try {
+        obj = (T) Enum.Parse(typeof(T), text, true);
+      } catch(Exception ex) {
+        obj = defaultValue;
+      }
+      return obj;
+    }
   }
 }
