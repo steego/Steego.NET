@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Steego.Conversions</id>
+    <version>0.1.0.0</version>
+    <authors>Stephen Goguen</authors>
+    <owners>Stephen Goguen</owners>
+    <licenseUrl>http://github.com/steego/Steego.NET/raw/master/license.txt</licenseUrl>
+    <projectUrl>http://github.com/steego/Steego.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A library of simple fluent conversion functions</description>
+    <summary>A library of simple fluent conversion functions</summary>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="Steego.Conversions\bin\Release\Steego.Conversions.*" target="lib" />
+  </files>
+</package>
