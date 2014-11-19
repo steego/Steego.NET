@@ -74,7 +74,7 @@ namespace Steego.Conversions {
       return str.Substring(checked(start - 1), length);
     }
 
-    public static string Right(string str, int length) {
+    public static string Right(this string str, int length) {
       if(length < 0) throw new ArgumentException("Length needs to be greater than 0");
 
       if(length == 0 || str == null) return "";
