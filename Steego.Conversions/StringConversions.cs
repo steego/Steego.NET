@@ -47,9 +47,24 @@ namespace Steego.Conversions {
       return defaultDate;
     }
 
+    public static double? ToDbl(this string value) {
+      double returnValue;
+      return Double.TryParse(value, out returnValue) ? returnValue : new Nullable<double>();
+    }
+
     public static double ToDbl(this string value, double defaultValue) {
       double returnValue;
       return Double.TryParse(value, out returnValue) ? returnValue : defaultValue;
+    }
+
+    public static decimal? ToDec(this string value) {
+      decimal returnValue;
+      return Decimal.TryParse(value, out returnValue) ? returnValue : new Nullable<decimal>();
+    }
+
+    public static decimal ToDec(this string value, decimal defaultValue) {
+      decimal returnValue;
+      return Decimal.TryParse(value, out returnValue) ? returnValue : defaultValue;
     }
 
     public static bool ToBool(this string s) {
