@@ -15,11 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 		release.bat = release.bat
 		Steego.Conversions.nuspec = Steego.Conversions.nuspec
 		Steego.LinqPad.nuspec = Steego.LinqPad.nuspec
+		Steego.Trees.nuspec = Steego.Trees.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.LinqPad", "Steego.LinqPad\Steego.LinqPad.csproj", "{764564C2-FA2A-4B70-B781-AD80F6B10AF2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.Trees", "Steego.Trees\Steego.Trees.csproj", "{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Archives", "Steego.Archives\Steego.Archives.fsproj", "{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Web", "Steego.Web\Steego.Web.fsproj", "{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{D3278077-738D-403E-A57B-5817FBF86AC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{C0BAEA46-718B-4BA1-B5A4-940BA6CA7184}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RecipesMvc", "RecipesMvc\RecipesMvc.fsproj", "{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RecipeApp", "RecipeApp\RecipeApp.fsproj", "{244160E4-A62A-4B7C-B0A9-29E51D255FC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +52,33 @@ Global
 		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244160E4-A62A-4B7C-B0A9-29E51D255FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244160E4-A62A-4B7C-B0A9-29E51D255FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244160E4-A62A-4B7C-B0A9-29E51D255FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244160E4-A62A-4B7C-B0A9-29E51D255FC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C30D05DF-7651-4538-9353-2EB83C88D3A3} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{764564C2-FA2A-4B70-B781-AD80F6B10AF2} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{8756ADB9-3AEE-4828-AA4A-9241F27E4AEE} = {C0BAEA46-718B-4BA1-B5A4-940BA6CA7184}
+		{244160E4-A62A-4B7C-B0A9-29E51D255FC9} = {C0BAEA46-718B-4BA1-B5A4-940BA6CA7184}
 	EndGlobalSection
 EndGlobal
