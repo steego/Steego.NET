@@ -9,11 +9,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Steego.Archives</RootNamespace>
     <AssemblyName>Steego.Archives</AssemblyName>
-    <TargetFrameworkVersion>v4.5.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
     <Name>Steego.Archives</Name>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archive.fs" />
-    <None Include="Script.fsx" />
+    <None Include="Archive.fsx" />
     <None Include="TestArchiving.linq" />
   </ItemGroup>
   <PropertyGroup>
