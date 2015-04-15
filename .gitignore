@@ -4,8 +4,8 @@
 _ReSharper.*
 bin/*
 obj/*
-*/bin/*
-*/obj/*
+src/*/bin/*
+src/*/obj/*
 Build
 packages/*
 .nuget/*.exe
