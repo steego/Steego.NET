@@ -4,7 +4,7 @@ open System
 open System.IO
 open System.Linq
 open System.Collections.Generic
-open Inflector
+//open OperatorIntrinsics.
 
 module Settings = 
   let rootFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Recipes")

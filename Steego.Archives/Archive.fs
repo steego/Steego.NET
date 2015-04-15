@@ -3,25 +3,33 @@
 open System
 open System.IO
 open System.Linq
-open System.IO.Compression
+open Ionic.Zip
 
-type FileArchiveMap(file:string, archiveFile:string) = 
-  member this.File = file
-  member thie.ArchiveFile = archiveFile
+type FileArchiveMap = { Filename:string; ArchiveFile:string }
 
 module FileHelpers  =
   let Hourly prefix (file:string) =
     let created = File.GetLastWriteTime(file)
     let datePart = created.ToString("yyyy-MM-dd")
     sprintf "%s-%s.zip" prefix datePart
-  let zipFiles (zipFile:string) (files:string[]) =
-    use a = ZipFile.Open(zipFile, ZipArchiveMode.Create)
+  let ZipFiles (zipFile:string) (files:string[]) =
+    use a = new ZipFile(zipFile)
     for sourceFile in files do
       let entryName = Path.GetFileName(sourceFile)
-      a.CreateEntryFromFile(sourceFile, entryName, CompressionLevel.Optimal) |> ignore
+      a.AddFile(sourceFile, "") |> ignore
     zipFile
-  let deleteFiles (files:string[]) =
+  let DeleteFiles (files:string[]) =
     for f in files do File.Delete(f)
+  let ArchiveFolder (archiveFileMap: seq<string> -> seq<FileArchiveMap>) (folder:string) =
+    let mappedFiles = archiveFileMap(Directory.EnumerateFiles(folder))
+    let fileMap = query { for m in mappedFiles do
+                          groupValBy m.Filename m.ArchiveFile into archives
+                          select (archives.Key,archives.ToArray()) }
+    seq { for (archiveFile, files) in fileMap do 
+          ZipFiles archiveFile files |> ignore
+          yield sprintf "Archived %s" archiveFile
+          DeleteFiles files
+          yield sprintf "Deleted %i files for %s" (files.Count()) archiveFile }
 
 type FolderCompressor(folder:string,getArchiveFile:string -> string,filter:string -> bool) =
   member this.Folder = folder
@@ -34,13 +42,13 @@ type FolderCompressor(folder:string,getArchiveFile:string -> string,filter:strin
             let files = archives |> Seq.sort |> Seq.toArray
             sortBy archiveFile
             select (archiveFile, files) }
-  member this.ArchiveFiles =
-    seq { for (archiveFile, files) in this.FileMap do 
-            FileHelpers.zipFiles archiveFile files |> ignore
-            yield sprintf "Archived %s" archiveFile
-            FileHelpers.deleteFiles files
-            yield sprintf "Deleted %i files for %s" (files.Count()) archiveFile
-        }
+  member this.ArchiveFiles = 
+    let getArchiveFileMap files = 
+      seq { for file in files do
+            if filter(file) then
+              let archive = Path.Combine(folder, getArchiveFile(file))
+              yield { ArchiveFile = archive; Filename = file } }
+    FileHelpers.ArchiveFolder getArchiveFileMap folder
   member this.SetMap(getFileName:Func<string,string>) = 
     FolderCompressor(folder, getFileName.Invoke, filter)
   member this.Where(filter:Func<string,bool>) =
