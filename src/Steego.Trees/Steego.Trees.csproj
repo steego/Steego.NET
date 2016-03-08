@@ -42,7 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumerableExt.cs" />
+    <Compile Include="FilteredNode.cs" />
+    <Compile Include="ITreeNode.cs" />
+    <Compile Include="MaxTree.cs" />
+    <Compile Include="ProjectedNode.cs" />
     <Compile Include="RecursiveExt.cs" />
+    <Compile Include="SimpleTreeNode.cs" />
+    <Compile Include="TreeNode.cs" />
     <Compile Include="Trees.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
