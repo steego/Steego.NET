@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Steego.Conversions {
   public static class StringExtensions {
-    private static Regex EmailRegex = new Regex("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", RegexOptions.IgnoreCase);
+    private static readonly Regex EmailRegex = new Regex("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", RegexOptions.IgnoreCase);
     private static Regex LeadsWithIntPattern = new Regex("^\\s*\\d+");
 
     public static bool IsBlank(this string value) {

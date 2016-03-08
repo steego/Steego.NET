@@ -9,7 +9,7 @@ namespace Steego.Conversions {
       return checked((int) Math.Round(value));
     }
 
-    public static int? ToInt(this Decimal? value) {
+    public static int? ToInt(this decimal? value) {
       if(!value.HasValue) {
         return null;
       } 
