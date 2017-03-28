@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Steego.Explorer</id>
+    <version>0.1.0.0</version>
+    <authors>Stephen Goguen</authors>
+    <owners>Stephen Goguen</owners>
+    <licenseUrl>http://github.com/steego/Steego.NET/raw/master/license.txt</licenseUrl>
+    <projectUrl>http://github.com/steego/Steego.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An object explorer component</description>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>
