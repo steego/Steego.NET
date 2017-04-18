@@ -1,0 +1,25 @@
+type project
+title
+    Steego.Explorer
+owners
+    Steve Goguen
+authors 
+    Steve Goguen
+projectUrl
+    https://github.com/steego/Steego.NET
+iconUrl
+    https://raw.githubusercontent.com/steego/Steego.NET/master/docs/files/img/logo.png
+licenseUrl
+    https://github.com/steego/Steego.NET/steego/Steego.NET/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    web functional
+summary
+    A Collection of .NET Utilities
+description
+    A collection of .NET utilities for a wide variety of purposes.
+
+

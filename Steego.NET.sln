@@ -1,34 +1,45 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B30800C3-6A47-403D-B800-7F16E574F067}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{63297B98-5CED-492C-A5B7-A5B4F73CF142}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.exe = .nuget\NuGet.exe
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{86A2DED2-AB09-4E5D-8608-43F7C909CEDB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.NET", "src\Steego.NET\Steego.NET.fsproj", "{A775D533-5CC4-4DF0-8A12-1163B7AA6930}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
-		release.bat = release.bat
-		Steego.Conversions.nuspec = Steego.Conversions.nuspec
-		Steego.LinqPad.nuspec = Steego.LinqPad.nuspec
-		Steego.Trees.nuspec = Steego.Trees.nuspec
+		build.fsx = build.fsx
+		README.md = README.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3278077-738D-403E-A57B-5817FBF86AC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{83F16175-43B1-4C90-A1EE-8E351C33435D}"
+	ProjectSection(SolutionItems) = preProject
+		docs\tools\generate.fsx = docs\tools\generate.fsx
+		docs\tools\templates\template.cshtml = docs\tools\templates\template.cshtml
+	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Archives", "src\Steego.Archives\Steego.Archives.fsproj", "{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{8E6D5255-776D-4B61-85F9-73C37AA1FB9A}"
+	ProjectSection(SolutionItems) = preProject
+		docs\content\index.fsx = docs\content\index.fsx
+		docs\content\tutorial.fsx = docs\content\tutorial.fsx
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.Conversions", "src\Steego.Conversions\Steego.Conversions.csproj", "{C30D05DF-7651-4538-9353-2EB83C88D3A3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.LinqPad", "src\Steego.LinqPad\Steego.LinqPad.csproj", "{764564C2-FA2A-4B70-B781-AD80F6B10AF2}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.NET.Tests", "tests\Steego.NET.Tests\Steego.NET.Tests.fsproj", "{0312CB4B-BEA5-4029-8CE5-B254D300A32C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steego.Trees", "src\Steego.Trees\Steego.Trees.csproj", "{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Web", "src\Steego.Web\Steego.Web.fsproj", "{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9436388C-4B0D-4C3C-95B0-E6549CBADF05}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Explorer", "src\Steego.Explorer\Steego.Explorer.fsproj", "{C8144C36-6456-4786-BA34-0C4B5FAAE9C1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Web", "src\Steego.Web\Steego.Web.fsproj", "{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,40 +47,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C30D05DF-7651-4538-9353-2EB83C88D3A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{764564C2-FA2A-4B70-B781-AD80F6B10AF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A775D533-5CC4-4DF0-8A12-1163B7AA6930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A775D533-5CC4-4DF0-8A12-1163B7AA6930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A775D533-5CC4-4DF0-8A12-1163B7AA6930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A775D533-5CC4-4DF0-8A12-1163B7AA6930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0312CB4B-BEA5-4029-8CE5-B254D300A32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0312CB4B-BEA5-4029-8CE5-B254D300A32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0312CB4B-BEA5-4029-8CE5-B254D300A32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0312CB4B-BEA5-4029-8CE5-B254D300A32C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2101C3A7-4787-4D17-BD2B-625DF9BC4EAF} = {D3278077-738D-403E-A57B-5817FBF86AC9}
-		{C30D05DF-7651-4538-9353-2EB83C88D3A3} = {D3278077-738D-403E-A57B-5817FBF86AC9}
-		{764564C2-FA2A-4B70-B781-AD80F6B10AF2} = {D3278077-738D-403E-A57B-5817FBF86AC9}
-		{B9F7CBFC-8A17-4882-B79D-4419CA3887B6} = {D3278077-738D-403E-A57B-5817FBF86AC9}
-		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3} = {D3278077-738D-403E-A57B-5817FBF86AC9}
-		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
+		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
+		{0312CB4B-BEA5-4029-8CE5-B254D300A32C} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1} = {9436388C-4B0D-4C3C-95B0-E6549CBADF05}
+		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3} = {9436388C-4B0D-4C3C-95B0-E6549CBADF05}
 	EndGlobalSection
 EndGlobal

@@ -4,9 +4,8 @@ open System
 open System.IO
 
 module Encoders =
-    open System.Web
-    let inline html(s:string) = HttpUtility.HtmlEncode(s)
-    let inline attribute(s:string) = HttpUtility.HtmlAttributeEncode(s)
+    let inline html(s:string) = System.Web.HttpUtility.HtmlEncode(s)
+    let inline attribute(s:string) = System.Web.HttpUtility.HtmlAttributeEncode(s)
 
 type Tag = 
     | Tag of Name:string * Attributes:Map<string, string> * Body:Tag list

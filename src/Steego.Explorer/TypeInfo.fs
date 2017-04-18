@@ -4,6 +4,9 @@ open System
 open System.Collections
 open System.Reflection
 open System.Linq
+open Fasterflect
+
+let inline isNull o = o = null
 let isPrimitiveType(t:Type) = t <> null && (t.IsValueType || t = typeof<string>)
 let isPrimitiveObject(o:obj) = (isNull o || isPrimitiveType(o.GetType()))
 let isEnumerable(e:obj) =
@@ -20,7 +23,18 @@ let isSeq(t:System.Type) =
 
 let isEnumerableType(t:Type) = if t <> null then isSeq(t) && t <> typeof<string> else false
 
-let isGenericSeq(t:Type) = if t = null then false else isSeq(t) && t.GenericTypeArguments.Length >= 1
+let private implementsGeneric<'a>(t:Type) = 
+  let find = typedefof<'a>.GetGenericTypeDefinition()
+  if t = null then false
+  elif t.IsGenericType = false then false
+  elif t.IsInterface && t.GetGenericTypeDefinition() = find then true
+  else
+    t.GetInterfaces()
+    |> Seq.filter(fun i -> i.IsGenericType)
+    |> Seq.map(fun i -> i.GetGenericTypeDefinition())
+    |> Seq.exists(fun i -> i = find)
+
+let isGenericSeq(t:Type) = implementsGeneric<seq<_>>(t)
 
 type MemberGetter(name:string, memberType:Type, getter:Func<obj,obj>) = 
   member this.Name = name
@@ -53,8 +67,7 @@ let getMemberGetters(t:Type) =
                     yield MemberGetter(f.Name, f.FieldType, fun o -> f.GetValue(o))
         ]
 
-let getElementType(t:Type) = if t = null then null else t.GenericTypeArguments.FirstOrDefault()
-
+let getElementType(t:Type) = if t = null then null else t.GetGenericArguments().FirstOrDefault()
 
 type TypeInfo(t:Type) = 
     let elementType = getElementType(t)

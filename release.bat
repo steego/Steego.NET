@@ -4,3 +4,6 @@ msbuild Steego.Net.sln /m /t:rebuild /p:Configuration=Release
 .nuget\nuget pack Steego.LinqPad.nuspec
 .nuget\nuget pack Steego.Trees.nuspec
 .nuget\nuget pack Steego.Explorer.nuspec
+.nuget\nuget pack Steego.Web.nuspec
+
+copy *.nupkg C:\NuGetPackages

@@ -13,6 +13,6 @@
     <language>en-US</language>
   </metadata>
   <files>
-    <file src="Steego.Conversions\bin\Release\Steego.Conversions.*" target="lib" />
+    <file src="src\Steego.Conversions\bin\Release\Steego.Conversions.*" target="lib" />
   </files>
 </package>

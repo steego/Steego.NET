@@ -13,6 +13,6 @@
     <language>en-US</language>
   </metadata>
   <files>
-    <file src="Steego.Trees\bin\Release\Steego.Trees.*" target="lib" />
+    <file src="src\Steego.Trees\bin\Release\Steego.Trees.*" target="lib" />
   </files>
 </package>

@@ -2,7 +2,7 @@
 namespace System
 open System.Reflection
 
-[<assembly: AssemblyTitleAttribute("Steego.Explorer")>]
+[<assembly: AssemblyTitleAttribute("Steego.Web")>]
 [<assembly: AssemblyProductAttribute("Steego.NET")>]
 [<assembly: AssemblyDescriptionAttribute("A Collection of .NET Utilities")>]
 [<assembly: AssemblyVersionAttribute("1.0")>]
@@ -11,7 +11,7 @@ open System.Reflection
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] AssemblyTitle = "Steego.Explorer"
+    let [<Literal>] AssemblyTitle = "Steego.Web"
     let [<Literal>] AssemblyProduct = "Steego.NET"
     let [<Literal>] AssemblyDescription = "A Collection of .NET Utilities"
     let [<Literal>] AssemblyVersion = "1.0"
