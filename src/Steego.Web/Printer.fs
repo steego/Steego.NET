@@ -33,9 +33,9 @@ let rec print (level:int) =
             | :? DateTime as v -> Html.Text(v.ToShortDateString())
             | IsPrimitive(n) -> Html.Text(n.ToString())
             | IsNullable(n) -> Html.Text(n.ToString())
-            | GenericList(getters, list) -> Html.Text("List...")
-            | :? System.Collections.IEnumerable as s -> Html.Text("List...")
-            | Object(members, prims, subObjs, enums, o1) -> Html.Text("Object...")
+            | GenericList(_, _) -> Html.Text("List...")
+            | :? System.Collections.IEnumerable -> Html.Text("List...")
+            | Object(_, _, _, _, _) -> Html.Text("Object...")
             | _ -> Html.Text("...")
         else
             match o with
@@ -47,12 +47,11 @@ let rec print (level:int) =
             | IsNullable(n) -> Html.Text(n.ToString())
             | GenericList(getters, list) -> printGenericList (level - 1)  getters list
             | :? System.Collections.IEnumerable as s -> printList (level - 1) s
-            | Object(members, prims, subObjs, enums, o1) -> printObject (level - 1) members o
+            | Object(members, _, _, _, _) -> printObject (level - 1) members o
             | _ -> Html.Text("...")        
 
     and printObject (level:int) (getters:MemberGetter list) =
         fun (o:obj) ->
-            let sb = new StringBuilder()
             let typeInfo = new TypeInfo(o)
             let primativeMembers = typeInfo.PrimitiveMembers
             table 

@@ -7,14 +7,14 @@ open System.Linq
 open Fasterflect
 
 
-let private primitiveTypes = [
-    typeof<int>; typeof<string>; typeof<DateTime>; typeof<bigint>; typeof<uint32>; typeof<char>;
-    typeof<double>; typeof<decimal>; typeof<uint32>; typeof<byte>; typeof<float>; typeof<sbyte>; 
-    typeof<int16>; typeof<uint64>; typeof<uint16>; typeof<bool>  
-]
-let IsPrimitive(t:Type) = primitiveTypes.Contains(t)
-  
-let (|Primitive|_|) (t:Type) = if IsPrimitive(t) then Some(t) else None
+//let private primitiveTypes = [
+//    typeof<int>; typeof<string>; typeof<DateTime>; typeof<bigint>; typeof<uint32>; typeof<char>;
+//    typeof<double>; typeof<decimal>; typeof<uint32>; typeof<byte>; typeof<float>; typeof<sbyte>; 
+//    typeof<int16>; typeof<uint64>; typeof<uint16>; typeof<bool>  
+//]
+//let IsPrimitive(t:Type) = primitiveTypes.Contains(t)
+//  
+//let (|Primitive|_|) (t:Type) = if IsPrimitive(t) then Some(t) else None
 
 let cacheTypeInfo<'a>(getTypeInfo: Type -> 'a) = 
   let hashTable = new System.Collections.Hashtable()

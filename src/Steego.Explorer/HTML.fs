@@ -1,4 +1,4 @@
-﻿module Html
+﻿module Steego.Html
 
 open System
 open System.IO

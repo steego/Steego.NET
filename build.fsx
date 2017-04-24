@@ -7,8 +7,6 @@
 #I @"packages/build/FsReveal/fsreveal/"
 
 #I @"packages/build/Suave/lib/net40"
-
-
 #r "Suave.dll"
 
 #load "fsreveal.fsx"
@@ -40,6 +38,7 @@ open Suave.Files
 open SourceLink
 #endif
 
+#load "tools/Formatters.fs"
 
 
 // --------------------------------------------------------------------------------------
@@ -405,6 +404,7 @@ Target "BuildPackage" DoNothing
 
 let fsiEvaluator = 
     let evaluator = FSharp.Literate.FsiEvaluator()
+    evaluator |> FsReveal.Formatters.register
     evaluator.EvaluationFailed.Add(fun err -> 
         traceImportant <| sprintf "Evaluating F# snippet failed:\n%s\nThe snippet evaluated:\n%s" err.StdErr err.Text )
     evaluator 
