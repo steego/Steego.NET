@@ -64,6 +64,7 @@
     <None Include="Tree.fsx" />
     <None Include="FileExplorer.fsx" />
     <None Include="Database.fsx" />
+    <None Include="Sortable-Pagable.fsx" />
     <None Include="Document.fsx" />
     <None Include="Self-Rendering-Objects.fsx" />
     <Content Include="packages.config" />
