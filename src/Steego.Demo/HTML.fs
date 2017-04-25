@@ -35,3 +35,6 @@ let makeTag (name:string) =
     let tag(attributes:(string * string) list) (body:Tag list) = 
         Tag(name, (Map.ofList attributes), body)    
     tag
+
+type IHtmlObject = 
+    abstract member ToHtml: Tag

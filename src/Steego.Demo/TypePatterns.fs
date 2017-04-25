@@ -96,6 +96,11 @@ let (|IsPrimitive|_|) (candidate : obj) =
     if isPrimitiveObject(candidate) then Some(candidate)
     else None
 
+//let (|ObjImplements|_|) (find:Type) (o:obj) = 
+//    let t : Type = if o <> null then o.GetType() else null
+//    if t = find || t.Implements(find) then Some(o) else None
+
+
 let (|GenericList|_|)(o:obj) =
     if isNull o then None
     else

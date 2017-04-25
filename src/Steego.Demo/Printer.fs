@@ -46,15 +46,33 @@ let info = new TypeInfo(null)
 
 let maxTake = 100
 
+module Patterns = 
+    let htmlObjectType = typeof<Html.IHtmlObject>
+    
+    open Fasterflect
+    
+    let (|HtmlObject|_|) (o:obj)  = 
+        let t : Type = if o <> null then o.GetType() else null
+        if t = htmlObjectType || t.Implements(htmlObjectType) then 
+            Some(o :?> Html.IHtmlObject) 
+        else 
+            None
+
+open Patterns
+
 let rec printHtml (level:int) = 
+    
+
     let rec print (level:int) (o:obj) : Html.Tag =         
         if level < 1 then
             match o with
             | null -> Html.Text("<null>")
+            | HtmlObject(h) -> h.ToHtml
             | :? Html.Tag as t -> t
             | :? NavContext as n ->
                 match n.Value with
                 | null -> Html.Text("<null>")
+                | HtmlObject(h) -> h.ToHtml
                 | :? Html.Tag as t -> t
                 | IsPrimitive(n) -> Html.Text(n.ToString())
                 | GenericList(getters, list) -> printGenericNavList (level - 1)  getters list n
@@ -72,10 +90,12 @@ let rec printHtml (level:int) =
         else
             match o with
             | null -> Html.Text("<null>")
+            | HtmlObject(h) -> h.ToHtml
             | :? Html.Tag as t -> t    
             | :? NavContext as n ->
                 match n.Value with
                 | null -> Html.Text("<null>")
+                | HtmlObject(h) -> h.ToHtml
                 | :? Html.Tag as t -> t
                 | IsPrimitive(n) -> Html.Text(n.ToString())
                 | GenericList(getters, list) -> printGenericNavList (level - 1)  getters list n
