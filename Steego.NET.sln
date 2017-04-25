@@ -41,6 +41,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Explorer", "src\Stee
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Web", "src\Steego.Web\Steego.Web.fsproj", "{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Demo", "src\Steego.Demo\Steego.Demo.fsproj", "{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{0312CB4B-BEA5-4029-8CE5-B254D300A32C} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{C8144C36-6456-4786-BA34-0C4B5FAAE9C1} = {9436388C-4B0D-4C3C-95B0-E6549CBADF05}
 		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3} = {9436388C-4B0D-4C3C-95B0-E6549CBADF05}
+		{EE1F2E57-26FC-4AA5-8C0C-19888FA19DFE} = {9436388C-4B0D-4C3C-95B0-E6549CBADF05}
 	EndGlobalSection
 EndGlobal

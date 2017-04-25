@@ -75,6 +75,7 @@
     <Compile Include="Printer.fs" />
     <Compile Include="WebServer.fs" />
     <Compile Include="Explorer.fs" />
+    <None Include="Test.fsx" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
