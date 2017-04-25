@@ -15,22 +15,11 @@ let p t = makeTag "p" [] [ Text(t) ]
 type PersonRecord = { Name:string; DOB: DateTime } with
     member this.Age = int((DateTime.Now - this.DOB).TotalDays / 365.0)
 
-type Person(name:string, dob:DateTime) = 
-    member this.Name = name
-    member this.DOB = dob
-    member this.GetHtml() = 
-        doc 2 [
-            h1("My " + name + " Fan Pan written in F#")
-            p(name + " the most dynamic and exciting musician.")
-            { Name = name; DOB = dob }
-        ]
-    interface IHtmlObject with
-        member this.ToHtml = this.GetHtml()
+let fanPage =
+    doc 2 [
+        h1("My Taylor Swift Fan Pan written in F#")
+        p("Taylor Swift the most dynamic and exciting musician.")
+        { Name = "Taylor Swift"; DOB = DateTime(1989, 12, 13) }
+    ]
 
-let taylor = Person("Taylor Swift", DateTime(1989, 12, 13))
-
-let jimmy = Person("Jimmy Page", DateTime(1944, 1, 9))
-
-taylor.Explore(1)
-jimmy.Explore(1)
-
+fanPage.Explore(1)
