@@ -46,11 +46,20 @@ let info = new TypeInfo(null)
 
 let maxTake = 100
 
-let rec print (level:int) = 
+let rec printHtml (level:int) = 
     let rec print (level:int) (o:obj) : Html.Tag =         
         if level < 1 then
             match o with
             | null -> Html.Text("<null>")
+            | :? Html.Tag as t -> t
+            | :? NavContext as n ->
+                match n.Value with
+                | null -> Html.Text("<null>")
+                | :? Html.Tag as t -> t
+                | IsPrimitive(n) -> Html.Text(n.ToString())
+                | GenericList(getters, list) -> printGenericNavList (level - 1)  getters list n
+                | Object(members, _, _, _, _) -> printNavObject (level - 1) members n
+                | o -> print level o
             | :? int as v -> Html.Text(v.ToString())
             | :? String as s -> Html.Text(s)
             | :? DateTime as v -> Html.Text(v.ToShortDateString())
@@ -62,14 +71,16 @@ let rec print (level:int) =
             | _ -> Html.Text("...")
         else
             match o with
+            | null -> Html.Text("<null>")
+            | :? Html.Tag as t -> t    
             | :? NavContext as n ->
                 match n.Value with
                 | null -> Html.Text("<null>")
+                | :? Html.Tag as t -> t
                 | IsPrimitive(n) -> Html.Text(n.ToString())
                 | GenericList(getters, list) -> printGenericNavList (level - 1)  getters list n
                 | Object(members, _, _, _, _) -> printNavObject (level - 1) members n
-                | _ -> Html.Text("NavContext: Can't handle it!")
-            | null -> Html.Text("<null>")
+                | o -> print level o
             | :? int as v -> Html.Text(v.ToString())
             | :? String as s -> Html.Text(s)
             | :? DateTime as v -> Html.Text(v.ToShortDateString())
@@ -95,13 +106,13 @@ let rec print (level:int) =
                     //  Show object members
                     for g in typeInfo.ObjectMembers do
                         let value = g.Get(o) |> print level
-                        let o = n.AddPath(g.Name, value)
+                        let o = n|> addPath(g.Name, value)
                         let memberLink = link o.Path g.Name 
                         yield hkeyValueRow(memberLink, memberLink)
                     //  Show enumerable members
                     for g in typeInfo.EnumerableMembers do
                         let value = g.Get(o) |> print level
-                        let o = n.AddPath(g.Name, value)
+                        let o = n |> addPath(g.Name, value)
                         let memberLink = link o.Path g.Name  
                         yield tr [] [ 
                             th [("colspan", "1")] [ memberLink ] 
@@ -152,7 +163,7 @@ let rec print (level:int) =
                                 yield th [] [ Html.Text(g.Name) ] 
                        ]
               tbody [] [ for (i,item) in list.Take(maxTake) |> Seq.indexed do
-                            let child = n.AddPath(string(i), item)
+                            let child = n|> addPath(string(i), item)
                             let indexLink = link child.Path (string(i))
                             yield tr [] [ yield td [] [ indexLink ]
                                           for g in getters do
@@ -174,5 +185,7 @@ let rec print (level:int) =
                                         ] 
                        ]
             ]
-    fun (o:obj) -> (print level o).ToString()
+    print level
+
+let print level o = (printHtml level o).ToString()
 

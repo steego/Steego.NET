@@ -22,7 +22,7 @@ let explore (level:int) (value:'a) =
   Web.Server.update(fun (ctx:HttpContext) -> async {
         let path = ctx.request.path
         let o = value :> obj
-        let navigatedObj = o |> ToContext |> NavigateContext path
+        let navigatedObj = o |> toContext |> NavigateContext path
         let tag = navigatedObj |> print level
         let html = sprintf "<html>%s<body>%s</body></html>" HeadTemplate (tag.ToString())
         return! Successful.OK html ctx

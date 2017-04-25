@@ -65,19 +65,25 @@ let CombineTypeRules (rules: NavRulePicker list) : Type -> NavRule =
 
 let defaultNavRuleMap : NavRuleMap = CombineTypeRules NavRulePickers.DefaultPickers
 
-type NavContext(value:obj, path:string list) = 
-    member this.Value = value
-    member this.Path = path
-    member this.AddPath(segment, newValue) = NavContext(newValue, segment::path)
-    member this.SetValue(value:obj) = NavContext(value, path)
-    new(value) = NavContext(value, [])
+type NavContext = { Value:obj; Path: string list }
+    
+let toContext(value:'a) = { Value = value :> obj; Path = [] }
+let addPath(segment,newValue) (ctx:NavContext) = 
+    { Value = newValue :> obj; Path = segment::ctx.Path }
 
-let ToContext<'a>(value:'a) = NavContext(value :> obj, [])
+//type NavContext(value:obj, path:string list) = 
+//    member this.Value = value
+//    member this.Path = path
+//    member this.AddPath(segment, newValue) = NavContext(newValue, segment::path)
+//    member this.SetValue(value:obj) = NavContext(value, path)
+//    new(value) = NavContext(value, [])
+//
+//let ToContext<'a>(value:'a) = NavContext(value :> obj, [])
 
 let NavigatePath(navRule:NavRule) = 
     let navNext(obj:NavContext)(path:string) : NavContext = 
         match navRule path obj.Value with
-        | Some(value) -> obj.AddPath(path, value)
+        | Some(value) -> obj |> addPath(path, value)
         | None -> raise(exn("Member not found!"))
     fun (path:string list) (obj:NavContext) ->
         if obj.Value = null then obj
