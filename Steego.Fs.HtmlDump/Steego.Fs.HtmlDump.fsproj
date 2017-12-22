@@ -8,11 +8,11 @@
     <ProjectGuid>7e79998f-760f-4176-82e2-93ec2a943e29</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Steego.Fs.WinDump</RootNamespace>
-    <AssemblyName>Steego.Fs.WinDump</AssemblyName>
+    <AssemblyName>Steego.Fs.HtmlDump</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>Steego.Fs.WinDump</Name>
+    <Name>Steego.Fs.HtmlDump</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +53,6 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="HTML.fs" />
     <Compile Include="Printer.fs" />
-    <Compile Include="Browser.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
   </ItemGroup>
@@ -66,13 +65,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.3.1\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Steego.Fs.Reflection\Steego.Fs.Reflection.fsproj">

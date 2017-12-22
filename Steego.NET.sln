@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B30800C3-6A47-403D-B800-7F16E574F067}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,7 +36,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Web", "src\Steego.We
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Fs.Reflection", "Steego.Fs.Reflection\Steego.Fs.Reflection.fsproj", "{74BA8443-3360-470F-8DF5-E69CDA2E459A}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Fs.WinDump", "Steego.Fs.WinDump\Steego.Fs.WinDump.fsproj", "{7E79998F-760F-4176-82E2-93EC2A943E29}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Fs.HtmlDump", "Steego.Fs.HtmlDump\Steego.Fs.HtmlDump.fsproj", "{7E79998F-760F-4176-82E2-93EC2A943E29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
