@@ -4,7 +4,7 @@ open System.IO
 open LINQPad
 
 type [<AllowNullLiteral>] ReactElement =
-    abstract member ToHtmlString: unit -> string
+    //abstract member ToHtmlString: unit -> string
     abstract member ToDump: unit -> obj
 
 type HTMLNode =
@@ -13,11 +13,12 @@ type HTMLNode =
     | Node of string * IProp seq * ReactElement seq
     | List of ReactElement seq
     | DumpContainer of DumpContainer
+    | Object of obj
     | Empty
     override this.ToString() = HTMLNode.renderToString(this)
     member this.ToDump() = LINQPad.Util.RawHtml(HTMLNode.renderToString(this))
     interface ReactElement with
-        member this.ToHtmlString() = HTMLNode.renderToString(this)
+        //member this.ToHtmlString() = HTMLNode.renderToString(this)
         member this.ToDump() = LINQPad.Util.RawHtml(HTMLNode.renderToString(this))
 
 
@@ -61,12 +62,12 @@ module HTMLNode =
 
         | HTMLNode.Empty -> ()
         | HTMLNode.DumpContainer(c) -> html.Write(Util.ToHtmlString(c))
+        | HTMLNode.Object(c) -> html.Write(Util.ToHtmlString(c))
 
     and writeElement (html: TextWriter) (htmlNode: ReactElement) =
       match htmlNode with
       | :? HTMLNode as node -> writeTo html node
-      | r -> html.Write(r.ToHtmlString())
-
+      | r -> html.Write(Util.ToHtmlString(r.ToDump()))
 
     let renderToString (htmlNode: HTMLNode): string =
         use html = new StringWriter()

@@ -13,6 +13,10 @@
     <Compile Include="Elmish\Elmish.Helpers.fs" />
     <Compile Include="Elmish\Elmish.Standard.fs" />
     <Compile Include="Elmish\Elmish.NonStandard.fs" />
+    <Compile Include="Components\Grid.fs" />
+    <Compile Include="Components\NavBar.fs" />
+    <Compile Include="Components\Html.fs" />
+    <Compile Include="Components\UI.fs" />    
     <Compile Include="Main.fs" />
   </ItemGroup>
 
