@@ -205,3 +205,5 @@ dist
 # Mac files
 .DS_Store
 
+# Ionide
+symbolCache.db

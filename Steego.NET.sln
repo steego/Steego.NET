@@ -38,6 +38,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Fs.Reflection", "Ste
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.Fs.HtmlDump", "Steego.Fs.HtmlDump\Steego.Fs.HtmlDump.fsproj", "{7E79998F-760F-4176-82E2-93EC2A943E29}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Steego.LinqPad.Elmish", "src\Steego.LinqPad.Elmish\Steego.LinqPad.Elmish.fsproj", "{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{7E79998F-760F-4176-82E2-93EC2A943E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E79998F-760F-4176-82E2-93EC2A943E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E79998F-760F-4176-82E2-93EC2A943E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{4F61EF6E-79D2-4C79-BDF7-46962E5689F3} = {D3278077-738D-403E-A57B-5817FBF86AC9}
 		{74BA8443-3360-470F-8DF5-E69CDA2E459A} = {D3278077-738D-403E-A57B-5817FBF86AC9}
 		{7E79998F-760F-4176-82E2-93EC2A943E29} = {D3278077-738D-403E-A57B-5817FBF86AC9}
+		{9A0A2CF6-EA35-4166-B8C5-CD2A666CA3A1} = {D3278077-738D-403E-A57B-5817FBF86AC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A9138592-628B-4FBB-90B7-E5A84BA69928}

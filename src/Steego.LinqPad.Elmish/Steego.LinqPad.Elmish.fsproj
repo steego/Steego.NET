@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Reflection\Utils.fs" />
+    <Compile Include="Elmish\HtmlUtilities.fs" />
+    <Compile Include="Elmish\Elmish.Props.fs" />
+    <Compile Include="Elmish\Elmish.Render.fs" />
+    <Compile Include="Elmish\HTMLNode.fs" />
+    <Compile Include="Elmish\Elmish.Helpers.fs" />
+    <Compile Include="Elmish\Elmish.Standard.fs" />
+    <Compile Include="Elmish\Elmish.NonStandard.fs" />
+    <Compile Include="Main.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LINQPad" Version="5.26.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data.Linq" />
+  </ItemGroup>
+
+</Project>
