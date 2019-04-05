@@ -10,8 +10,8 @@ type [<AllowNullLiteral>] ReactElement =
 type HTMLNode =
     | Text of string
     | RawText of string
-    | Node of string * IProp seq * ReactElement seq
-    | List of ReactElement seq
+    | Node of string * IProp seq * obj seq
+    | List of obj seq
     | DumpContainer of DumpContainer
     | Object of obj
     | Empty
@@ -64,10 +64,10 @@ module HTMLNode =
         | HTMLNode.DumpContainer(c) -> html.Write(Util.ToHtmlString(c))
         | HTMLNode.Object(c) -> html.Write(Util.ToHtmlString(c))
 
-    and writeElement (html: TextWriter) (htmlNode: ReactElement) =
+    and writeElement (html: TextWriter) (htmlNode: obj) =
       match htmlNode with
       | :? HTMLNode as node -> writeTo html node
-      | r -> html.Write(Util.ToHtmlString(r.ToDump()))
+      | r -> html.Write(Util.ToHtmlString(r))
 
     let renderToString (htmlNode: HTMLNode): string =
         use html = new StringWriter()

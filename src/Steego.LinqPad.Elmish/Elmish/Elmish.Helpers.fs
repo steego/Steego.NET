@@ -30,7 +30,7 @@ module Helpers =
     module ServerRendering =
         let [<Literal>] private ChildrenName = "children"
 
-        let private createServerElementPrivate(tag: obj, props: obj, children: ReactElement seq, elementType: ServerElementType) =
+        let private createServerElementPrivate(tag: obj, props: obj, children: obj seq, elementType: ServerElementType) =
             match elementType with
             | ServerElementType.Tag ->
                 HTMLNode.Node (string tag, props :?> IProp seq, children) :> ReactElement
@@ -47,7 +47,7 @@ module Helpers =
         // In most cases these functions are inlined (mainly for Fable optimizations)
         // so we create a proxy to avoid inlining big functions every time
 
-        let createServerElement(tag: obj, props: obj, children: ReactElement seq, elementType: ServerElementType) =
+        let createServerElement(tag: obj, props: obj, children: obj seq, elementType: ServerElementType) =
             createServerElementPrivate(tag, props, children, elementType)
 
     [<RequireQualifiedAccess>]
@@ -81,16 +81,16 @@ module Helpers =
     let inline ofFloat (f: float): ReactElement = HTMLNode.RawText (string f) :> ReactElement
 
     /// Returns a list **from .render() method**
-    let inline ofList (els: ReactElement list): ReactElement = HTMLNode.List els :> ReactElement
+    let inline ofList (els: obj list): ReactElement = HTMLNode.List els :> ReactElement
 
     /// Returns an array **from .render() method**
-    let inline ofArray (els: ReactElement array): ReactElement = HTMLNode.List els :> ReactElement
+    let inline ofArray (els: obj array): ReactElement = HTMLNode.List els :> ReactElement
 
     /// A ReactElement when you don't want to render anything (null in javascript)
     let nothing: ReactElement = HTMLNode.Empty :> ReactElement
 
     /// Instantiate a DOM React element
-    let inline domEl (tag: string) (props: IHTMLProp seq) (children: ReactElement seq): ReactElement =
+    let inline domEl (tag: string) (props: IHTMLProp seq) (children: obj seq): ReactElement =
         ServerRendering.createServerElement(tag, (props |> Seq.cast<IProp>), children, ServerElementType.Tag)
 
     /// Instantiate a DOM React element (void)
@@ -98,7 +98,7 @@ module Helpers =
         ServerRendering.createServerElement(tag, (props |> Seq.cast<IProp>), [], ServerElementType.Tag)
 
     /// Instantiate an SVG React element
-    let inline svgEl (tag: string) (props: IProp seq) (children: ReactElement seq): ReactElement =
+    let inline svgEl (tag: string) (props: IProp seq) (children: obj seq): ReactElement =
         ServerRendering.createServerElement(tag, (props |> Seq.cast<IProp>), children, ServerElementType.Tag)
 
     // Class list helpers
